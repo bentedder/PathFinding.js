@@ -27,13 +27,13 @@ gulp.task('browserify', ['clean'], function(cb) {
 gulp.task('uglify', ['browserify'], function(cb) {
     return gulp.src('./lib/pathfinding-browserified.js')
     .pipe(uglify())
-    .pipe(rename('pathfinding-browser.min.js'))
+    .pipe(rename('pathfindingjs-with-cost.min.js'))
     .pipe(gulp.dest('./lib/'), cb);
 });
 
 gulp.task('scripts', ['clean', 'browserify', 'uglify'], function(cb) {
     return gulp.src(['./src/banner', './lib/pathfinding-browserified.js'])
-    .pipe(concat('pathfinding-browser.js'))
+    .pipe(concat('pathfindingjs-with-cost.js'))
     .pipe(gulp.dest('./lib/'), cb);
 });
 
